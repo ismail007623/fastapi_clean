@@ -3,7 +3,10 @@
   "builds": [
     {
       "src": "api/main.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb"
+      }
     }
   ],
   "routes": [
@@ -11,5 +14,13 @@
       "src": "/(.*)",
       "dest": "api/main.py"
     }
-  ]
+  ],
+  "functions": {
+    "api/main.py": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "PYTHONPATH": "/var/task"
+  }
 }
