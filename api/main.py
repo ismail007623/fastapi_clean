@@ -37,6 +37,9 @@ def gen_connection():
     except Exception as error:
         print(error)
 
+
+DATABASE_URL = os.getenv("DATABASE_URL")
+
 embeddings=GoogleGenerativeAIEmbeddings(
         model="models/embedding-001",
         google_api_key=os.getenv("GOOGLE_API_KEY")
